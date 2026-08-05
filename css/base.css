@@ -1,0 +1,40 @@
+/* Reset & base styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, .display { font-family: var(--font-display); letter-spacing: 0.01em; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-mascot img { animation: none !important; }
+}
+
+/* Skip link (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--navy);
+  color: var(--white);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  z-index: 999;
+  text-decoration: none;
+}
+.skip-link:focus { left: 0; }
