@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Proteus Kids Sports Academy | I Adapt. I Grow. I Can Do Anything!</title>
+<meta name="description" content="Personalized multisport coaching for kids. Soccer, basketball, tennis, cricket, swimming, and running — adaptive coaching that grows with every child.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #00B2A9;
+  --teal-dark: #007A74;
+  --orange: #FF6B00;
+  --navy: #0D1B3D;
+  --yellow: #FFC107;
+  --sky: #4FC3F7;
+  --bg: #F7FAF9;
+  --ink: #17302E;
+  --muted: #5E706E;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
+.subhead { font-family: 'Poppins', sans-serif; font-weight: 700; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-mascot img { animation: none !important; }
+  .floating-cta .pulse { animation: none !important; }
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(247, 250, 249, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+.nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.nav-logo { display: flex; align-items: baseline; gap: 2px; }
+.nav-logo .p {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem;
+  background: linear-gradient(135deg, #4FC3F7 0%, #00B2A9 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-logo .word { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; color: var(--navy); letter-spacing: 0.03em; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.9rem; transition: color 0.2s ease; }
+.nav-links a:hover { color: var(--teal); }
+.nav-cta { background: var(--teal); color: #fff; border: none; padding: 10px 22px; border-radius: 50px; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+
+@media (max-width: 800px) {
+  .nav-links { display: none; }
+  .nav { padding: 14px 20px; }
+}
+
+/* ---------- REVEAL ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- HERO ---------- */
+.hero-wrap { padding: 24px; }
+.hero-banner {
+  position: relative; width: 100%; max-width: 1200px; margin: 0 auto; min-height: 560px;
+  background: linear-gradient(135deg, #00B2A9 0%, #007A74 50%, #0D1B3D 100%);
+  border-radius: 28px; overflow: hidden; display: grid;
+  grid-template-columns: 1.15fr 0.85fr; align-items: center; padding: 0 64px;
+}
+.hero-banner::before {
+  content: ''; position: absolute; top: -40%; right: -10%; width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.16) 0%, rgba(0,0,0,0) 70%);
+}
+.hero-content { z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.eyebrow { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.hero-content .eyebrow { color: var(--yellow); }
+.hero-tagline { font-size: 4rem; line-height: 0.98; color: #fff; }
+.hero-tagline .hl { background: linear-gradient(90deg, #FFC107 0%, #FFE082 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-family: 'Poppins', sans-serif; color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 420px; line-height: 1.55; }
+.hero-ctas { display: flex; gap: 14px; margin-top: 6px; }
+.btn-primary { background: var(--yellow); color: var(--navy); font-weight: 700; font-family: 'Poppins', sans-serif; padding: 15px 32px; border: none; border-radius: 50px; cursor: pointer; font-size: 1rem; box-shadow: 0 10px 24px rgba(255,193,7,0.3); }
+.btn-ghost { background: transparent; color: #fff; font-weight: 700; font-family: 'Poppins', sans-serif; padding: 15px 28px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50px; cursor: pointer; font-size: 1rem; }
+.hero-mascot { display: flex; justify-content: center; align-items: flex-end; height: 100%; z-index: 2; }
+.hero-mascot img { max-height: 480px; width: auto; object-fit: contain; filter: drop-shadow(0 18px 26px rgba(0,0,0,0.3)); animation: float 4.2s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(-8px);} 50% { transform: translateY(-24px);} }
+
+@media (max-width: 900px) {
+  .hero-banner { grid-template-columns: 1fr; padding: 48px 28px; text-align: center; min-height: auto; }
+  .hero-content { align-items: center; }
+  .hero-tagline { font-size: 2.6rem; }
+  .hero-mascot { margin-top: 24px; height: 300px; }
+  .hero-mascot img { max-height: 100%; }
+  .hero-sub { max-width: 100%; }
+}
+
+/* ---------- SECTION SHELL ---------- */
+.section { max-width: 1200px; margin: 0 auto; padding: 72px 24px; }
+.section-header { text-align: center; margin-bottom: 44px; }
+.section-title { font-size: 2.6rem; color: var(--navy); line-height: 1; }
+.section-title .accent { color: var(--teal); }
+.section-header .eyebrow { color: var(--teal); }
+
+/* ---------- MEET PROTO ---------- */
+.meet-card { background: #fff; border-radius: 24px; padding: 56px 64px; display: grid; grid-template-columns: 0.85fr 1.15fr; align-items: center; gap: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.meet-mascot { display: flex; justify-content: center; position: relative; }
+.meet-mascot::before { content:''; position:absolute; width:320px; height:320px; background: radial-gradient(circle, rgba(0,178,169,0.08) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; }
+.meet-mascot img { max-height: 400px; width: auto; position: relative; z-index: 1; filter: drop-shadow(0 14px 18px rgba(0,0,0,0.12)); }
+.meet-content { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.meet-heading { font-size: 2.3rem; color: var(--navy); line-height: 1.05; }
+.meet-heading .accent { color: var(--teal); }
+.mission-text { font-family: 'Open Sans', sans-serif; font-size: 1.02rem; line-height: 1.65; color: var(--muted); max-width: 480px; }
+.mission-text .hl { color: var(--teal); font-weight: 700; }
+.value-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.chip { display:flex; align-items:center; gap:8px; background:#F0FAF9; border:1px solid rgba(0,178,169,0.2); font-family:'Poppins',sans-serif; font-weight:600; font-size:0.82rem; padding:8px 16px; border-radius:50px; color: var(--navy); }
+.chip .dot { width:8px; height:8px; border-radius:50%; background: var(--teal); }
+.chip:nth-child(2) .dot { background: var(--orange); }
+.chip:nth-child(3) .dot { background: var(--yellow); }
+.chip:nth-child(4) .dot { background: var(--sky); }
+
+@media (max-width: 900px) {
+  .meet-card { grid-template-columns: 1fr; padding: 40px 28px; text-align: center; }
+  .meet-content { align-items: center; }
+  .mission-text { max-width: 100%; }
+  .value-chips { justify-content: center; }
+}
+
+/* ---------- SPORT CARDS ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.sport-card { position: relative; background: #fff; border-radius: 20px; padding: 26px 22px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.04); transition: transform 0.25s ease, box-shadow 0.25s ease; overflow: hidden; }
+.sport-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,178,169,0.15); }
+.sport-card::before { content:''; position:absolute; top:0; left:0; right:0; height:86px; background: var(--card-color, var(--teal)); opacity:0.08; border-radius: 20px 20px 50% 50% / 20px 20px 28px 28px; }
+.card-image-wrap { position:relative; height:168px; display:flex; align-items:flex-end; justify-content:center; z-index:1; margin-bottom:10px; }
+.card-image-wrap img { max-height:100%; max-width:100%; object-fit:contain; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.12)); }
+.sport-name { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.1rem; color: var(--navy); margin-bottom:4px; z-index:1; }
+.sport-desc { font-size:0.85rem; color: var(--muted); line-height:1.5; z-index:1; }
+.card-soccer { --card-color:#00B2A9; }
+.card-basketball { --card-color:#FF6B00; }
+.card-tennis { --card-color:#4FC3F7; }
+.card-cricket { --card-color:#FFC107; }
+.card-swimming { --card-color:#0D1B3D; }
+.card-running { --card-color:#FFCC71; }
+
+@media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
+
+/* ---------- COACH ---------- */
+.coach-card { position: relative; background: linear-gradient(135deg, #0D1B3D 0%, #14294F 60%, #0D1B3D 100%); border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: center; padding: 56px 64px; gap: 40px; }
+.coach-card::before { content:''; position:absolute; bottom:-20%; left:-10%; width:480px; height:480px; background: radial-gradient(circle, rgba(0,178,169,0.12) 0%, rgba(0,0,0,0) 70%); }
+.coach-mascot { display:flex; justify-content:center; align-items:flex-end; height:400px; z-index:1; }
+.coach-mascot img { max-height:100%; width:auto; object-fit:contain; filter: drop-shadow(0 14px 22px rgba(0,0,0,0.35)); }
+.coach-content { z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:14px; }
+.coach-content .eyebrow { color: var(--yellow); }
+.coach-heading { font-size: 2.3rem; color: #fff; line-height: 1.1; }
+.coach-heading .accent { color: var(--teal); }
+.coach-text { font-size: 1rem; line-height:1.65; color:#C9D3E0; max-width:460px; }
+.coach-features { display:flex; flex-direction:column; gap:12px; margin-top:8px; }
+.feature-row { display:flex; align-items:center; gap:12px; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:0.9rem; }
+.feature-icon { width:26px; height:26px; border-radius:50%; background: var(--teal); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#0D1B3D; font-weight:800; }
+
+@media (max-width: 900px) {
+  .coach-card { grid-template-columns:1fr; text-align:center; padding:40px 28px; }
+  .coach-content { align-items:center; }
+  .coach-mascot { height:280px; order:-1; }
+  .coach-text { max-width:100%; }
+  .feature-row { justify-content:center; }
+}
+
+/* ---------- ACHIEVEMENTS ---------- */
+.achieve-card { position: relative; background: #fff; border-radius: 24px; padding: 56px 64px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.achieve-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+.achieve-item { position:relative; border-radius:20px; padding:28px; display:flex; align-items:center; gap:22px; overflow:hidden; }
+.achieve-item.champ { background: linear-gradient(135deg,#FFF8E1 0%,#FFECB3 100%); }
+.achieve-item.cele { background: linear-gradient(135deg,#E0F7F5 0%,#B2EBE5 100%); }
+.achieve-item img { max-height:190px; width:auto; object-fit:contain; flex-shrink:0; filter: drop-shadow(0 10px 16px rgba(0,0,0,0.12)); }
+.achieve-item h3 { font-size:1.3rem; color: var(--navy); margin-bottom:6px; }
+.achieve-item p { font-size:0.9rem; line-height:1.55; color: var(--muted); }
+.stats-strip { display:flex; justify-content:space-around; margin-top:44px; padding-top:36px; border-top:1px solid #EAEFEE; flex-wrap:wrap; gap:20px; }
+.stat-number { font-size:2.2rem; color: var(--teal); }
+.stat-label { font-family:'Poppins',sans-serif; font-size:0.82rem; color: var(--muted); font-weight:600; margin-top:2px; }
+
+@media (max-width:900px) {
+  .achieve-card { padding:40px 24px; }
+  .achieve-grid { grid-template-columns:1fr; }
+  .achieve-item { flex-direction:column; text-align:center; }
+}
+
+/* ---------- FOOTER ---------- */
+footer { background: var(--navy); color: rgba(255,255,255,0.7); text-align:center; padding: 44px 24px 100px; font-family:'Poppins',sans-serif; font-size:0.85rem; }
+footer .foot-tag { color: var(--yellow); font-weight:700; letter-spacing:0.06em; margin-bottom: 6px; }
+
+/* ---------- FLOATING CTA ---------- */
+.floating-cta {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--yellow); color: var(--navy);
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.92rem;
+  padding: 14px 22px; border-radius: 50px; border: none; cursor: pointer;
+  box-shadow: 0 12px 28px rgba(255,193,7,0.4);
+  opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.floating-cta.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.floating-cta .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 0 rgba(0,178,169,0.6); animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,178,169,0.6); } 70% { box-shadow: 0 0 0 10px rgba(0,178,169,0); } 100% { box-shadow: 0 0 0 0 rgba(0,178,169,0); } }
+
+@media (max-width: 600px) { .floating-cta span.long { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-logo"><span class="p">P</span><span class="word">ROTEUS</span></div>
+  <div class="nav-links">
+    <a href="#meet">Meet Proto</a>
+    <a href="#sports">Programs</a>
+    <a href="#coach">Coaches</a>
+    <a href="#achievements">Achievements</a>
+  </div>
+  <button class="nav-cta">Book a Trial</button>
+</nav>
+
+<div class="hero-wrap">
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="eyebrow">Kids Sports Academy</span>
+      <h1 class="hero-tagline">I Adapt.<br/>I Grow.<br/><span class="hl">I Can Do Anything!</span></h1>
+      <p class="hero-sub">Personalized multisport coaching that builds adaptive kids, one sport, one session, one win at a time.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Book a Trial Session</button>
+        <button class="btn-ghost">See Programs</button>
+      </div>
+    </div>
+    <div class="hero-mascot">
+      <picture><source srcset="images/proto-celebrating.webp" type="image/webp"><img src="images/proto-celebrating.png" alt="Proto the mascot celebrating with arms raised" width="480" height="640" fetchpriority="high"/></picture>
+    </div>
+  </section>
+</div>
+
+<section class="section reveal" id="meet">
+  <div class="meet-card">
+    <div class="meet-mascot"><picture><source srcset="images/proto-welcoming.webp" type="image/webp"><img src="images/proto-welcoming.png" alt="Proto standing with arms open in a welcoming pose" loading="lazy" width="400" height="527"/></picture></div>
+    <div class="meet-content">
+      <span class="eyebrow">Meet Proto</span>
+      <h2 class="meet-heading">Every kid's <span class="accent">adaptive</span> best friend.</h2>
+      <p class="mission-text">To empower every child to <span class="hl">develop an adaptive mindset and physical literacy</span> through personalized multisport learning. Proto adapts to every sport, every challenge, and every kid — because growth looks different for everyone.</p>
+      <div class="value-chips">
+        <div class="chip"><span class="dot"></span>Adaptability</div>
+        <div class="chip"><span class="dot"></span>Growth</div>
+        <div class="chip"><span class="dot"></span>Resilience</div>
+        <div class="chip"><span class="dot"></span>Teamwork</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="sports">
+  <div class="section-header">
+    <span class="eyebrow">Sport Programs</span>
+    <h2 class="section-title">Six sports. <span class="accent">One adaptive Proto.</span></h2>
+  </div>
+  <div class="card-grid">
+    <div class="sport-card card-soccer"><div class="card-image-wrap"><picture><source srcset="images/proto-soccer.webp" type="image/webp"><img src="images/proto-soccer.png" alt="Proto kicking a soccer ball" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Soccer</div><div class="sport-desc">Ball control, teamwork, and agility on the pitch.</div></div>
+    <div class="sport-card card-basketball"><div class="card-image-wrap"><picture><source srcset="images/proto-basketball.webp" type="image/webp"><img src="images/proto-basketball.png" alt="Proto dribbling a basketball" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Basketball</div><div class="sport-desc">Coordination, focus, and confident movement.</div></div>
+    <div class="sport-card card-tennis"><div class="card-image-wrap"><picture><source srcset="images/proto-tennis.webp" type="image/webp"><img src="images/proto-tennis.png" alt="Proto swinging a tennis racket" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Tennis</div><div class="sport-desc">Precision, patience, and reaction speed.</div></div>
+    <div class="sport-card card-cricket"><div class="card-image-wrap"><picture><source srcset="images/proto-cricket.webp" type="image/webp"><img src="images/proto-cricket.png" alt="Proto in cricket batting stance" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Cricket</div><div class="sport-desc">Timing, strategy, and steady hands.</div></div>
+    <div class="sport-card card-swimming"><div class="card-image-wrap"><picture><source srcset="images/proto-swimming.webp" type="image/webp"><img src="images/proto-swimming.png" alt="Proto swimming freestyle" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Swimming</div><div class="sport-desc">Full-body strength and water confidence.</div></div>
+    <div class="sport-card card-running"><div class="card-image-wrap"><picture><source srcset="images/proto-running.webp" type="image/webp"><img src="images/proto-running.png" alt="Proto running mid-stride" loading="lazy" width="200" height="220"/></picture></div><div class="sport-name">Running</div><div class="sport-desc">Endurance, pace, and personal bests.</div></div>
+  </div>
+</section>
+
+<section class="section reveal" id="coach">
+  <div class="coach-card">
+    <div class="coach-mascot"><picture><source srcset="images/proto-coach.webp" type="image/webp"><img src="images/proto-coach.png" alt="Coach Proto wearing a cap and polo shirt with a whistle" loading="lazy" width="400" height="527"/></picture></div>
+    <div class="coach-content">
+      <span class="eyebrow">Coach Proto</span>
+      <h2 class="coach-heading">Every child deserves a <span class="accent">coach who adapts.</span></h2>
+      <p class="coach-text">Coach Proto guides every session with encouragement, structure, and an eye for each child's pace. No two kids grow the same way — our coaching approach never asks them to.</p>
+      <div class="coach-features">
+        <div class="feature-row"><span class="feature-icon">✓</span> Certified youth sports coaches</div>
+        <div class="feature-row"><span class="feature-icon">✓</span> Individualized progress tracking</div>
+        <div class="feature-row"><span class="feature-icon">✓</span> Encouragement-first coaching style</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="achievements">
+  <div class="achieve-card">
+    <div class="section-header">
+      <span class="eyebrow">Every Milestone Counts</span>
+      <h2 class="section-title">Celebrate the <span class="accent" style="color:var(--orange)">wins</span>, big and small.</h2>
+    </div>
+    <div class="achieve-grid">
+      <div class="achieve-item champ">
+        <picture><source srcset="images/proto-champion.webp" type="image/webp"><img src="images/proto-champion.png" alt="Proto holding a gold trophy overhead wearing a medal" loading="lazy" width="180" height="285"/></picture>
+        <div><h3>Achievement Badges</h3><p>Kids earn badges for Explorer, Focus, Agility, Teamwork, Resilience, and Champion milestones — recognizing growth, not just talent.</p></div>
+      </div>
+      <div class="achieve-item cele">
+        <picture><source srcset="images/proto-celebrating.webp" type="image/webp"><img src="images/proto-celebrating.png" alt="Proto celebrating with arms raised and confetti" loading="lazy" width="180" height="285"/></picture>
+        <div><h3>Progress Over Perfection</h3><p>Every session ends with a celebration moment, reinforcing that showing up and trying is always worth cheering for.</p></div>
+      </div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat"><div class="stat-number">6</div><div class="stat-label">Sports Offered</div></div>
+      <div class="stat"><div class="stat-number">6</div><div class="stat-label">Achievement Badges</div></div>
+      <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Adaptive Coaching</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-tag">I ADAPT. I GROW. I CAN DO ANYTHING!</div>
+  <div>Proteus Kids Sports Academy</div>
+</footer>
+
+<button class="floating-cta" id="floatCta">
+  <span class="pulse"></span>
+  <span class="long">Book a Trial Session</span>
+</button>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  const floatCta = document.getElementById('floatCta');
+  const heroWrap = document.querySelector('.hero-wrap');
+  const ctaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) floatCta.classList.add('show');
+      else floatCta.classList.remove('show');
+    });
+  }, { threshold: 0 });
+  ctaObserver.observe(heroWrap);
+</script>
+
+</body>
+</html>
