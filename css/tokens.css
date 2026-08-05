@@ -1,0 +1,68 @@
+:root {
+  /* Colour palette — Brand Architecture v1.6 */
+  --teal: #00B2A9;
+  --teal-dark: #007A74;
+  --orange: #FF6B00;
+  --navy: #0D1B3D;
+  --yellow: #FFC107;
+  --sky: #4FC3F7;
+  --bg: #F7FAF9;
+  --ink: #17302E;
+  --muted: #5E706E;
+  --white: #FFFFFF;
+  --border: rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 12px 28px rgba(255, 193, 7, 0.4);
+
+  /* Spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.85rem;
+  --text-base: 0.92rem;
+  --text-md: 0.95rem;
+  --text-lg: 1.05rem;
+  --text-xl: 1.15rem;
+  --text-2xl: 1.3rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.4rem;
+  --text-6xl: 3rem;
+  --text-7xl: 3.4rem;
+
+  /* Font families */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-ui: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-2xl: 24px;
+  --radius-full: 50px;
+
+  /* Transitions */
+  --ease-default: 0.25s ease;
+  --ease-slow: 0.35s ease;
+  --ease-smooth: 0.7s ease;
+
+  /* Layout */
+  --max-width: 1200px;
+  --max-width-narrow: 1100px;
+  --nav-height: 60px;
+}
