@@ -81,6 +81,21 @@
     });
   }
 
+  /* --- Badge unlock animation --- */
+  var badgeRows = document.querySelectorAll('.badge-row');
+  if (badgeRows.length && 'IntersectionObserver' in window) {
+    var badgeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.badge-chip').forEach(function (chip) {
+          chip.classList.add('animate-in');
+        });
+        badgeObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+    badgeRows.forEach(function (row) { badgeObserver.observe(row); });
+  }
+
   /* --- Animated counters --- */
   var counters = document.querySelectorAll('[data-count]');
   if (counters.length && 'IntersectionObserver' in window) {

@@ -59,6 +59,14 @@ button:focus-visible {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-mascot img { animation: none !important; }
+  .hero-banner { animation: none !important; }
+  .hero-banner::after { animation: none !important; }
+  .hero-shape { animation: none !important; }
+  .nav-logo svg .p-stem,
+  .nav-logo svg .p-loop { stroke-dashoffset: 0 !important; animation: none !important; }
+  .nav-logo .word { opacity: 1 !important; animation: none !important; }
+  .badge-chip.animate-in .badge-icon,
+  .badge-chip.animate-in .badge-label { animation: none !important; opacity: 1 !important; }
   .scroll-progress { display: none; }
 }
 
