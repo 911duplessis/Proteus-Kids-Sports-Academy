@@ -50,6 +50,7 @@
   font-size: var(--text-sm);
   font-family: var(--font-ui);
   cursor: pointer;
+  text-decoration: none;
   transition: background var(--ease-default);
 }
 .nav-cta:hover { background: var(--teal-dark); }
