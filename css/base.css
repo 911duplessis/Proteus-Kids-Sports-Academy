@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-img, svg { max-width: 100%; display: block; }
+img, svg { max-width: 100%; display: block; height: auto; }
 h1, h2, h3, .display { font-family: var(--font-display); letter-spacing: 0.01em; }
 
 a:focus-visible,
@@ -17,10 +17,49 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--sky), var(--yellow));
+  z-index: 999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(13, 27, 61, 0.25);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+}
+.back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: var(--teal); }
+.back-to-top svg { width: 20px; height: 20px; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-mascot img { animation: none !important; }
+  .scroll-progress { display: none; }
 }
 
 /* Skip link (accessibility) */
