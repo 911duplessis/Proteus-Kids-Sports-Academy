@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Proteus Dynamic P — Motion System v1.0</title>
+<style>
+  :root {
+    --proteus-navy: #0D1B3D;
+    --ease-anchor: cubic-bezier(0.2, 0.0, 0.0, 1.0);
+    --ease-flow: cubic-bezier(0.16, 1.0, 0.3, 1.0);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    background: #F7FAF9;
+    font-family: system-ui, sans-serif;
+  }
+
+  .stage {
+    width: 320px;
+    height: 320px;
+  }
+
+  .proteus-path {
+    fill: none;
+    stroke: var(--proteus-navy);
+    stroke-width: 200px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Stage 1: Foundation — stem draws 0-200ms. Length = 740 (exact: |960-220|) */
+  .p-stem {
+    stroke-dasharray: 740;
+    stroke-dashoffset: 740;
+    animation: draw 200ms var(--ease-anchor) 0ms forwards;
+  }
+
+  /* Stage 2: Transformation — main loop draws 200-600ms. Length = 1466.1 (280 * 300deg in rad) */
+  .p-loop {
+    stroke-dasharray: 1466.1;
+    stroke-dashoffset: 1466.1;
+    animation: draw 400ms var(--ease-flow) 200ms forwards;
+  }
+
+  /* Stage 3: Potential — aperture terminal draws 600-900ms. Length = 146.6 (280 * 30deg in rad) */
+  .p-aperture {
+    stroke-dasharray: 146.6;
+    stroke-dashoffset: 146.6;
+    animation: draw 300ms var(--ease-flow) 600ms forwards;
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .p-stem, .p-loop, .p-aperture {
+      animation: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+  }
+
+  .replay-btn {
+    background: var(--proteus-navy);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  .label {
+    font-size: 0.85rem;
+    color: #5E706E;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+  <span class="label">Dynamic P — 900ms Motion Sequence</span>
+
+  <svg class="stage" viewBox="0 0 1200 1200" id="protoSvg">
+    <line class="proteus-path p-stem" x1="380" y1="220" x2="380" y2="960"/>
+    <path class="proteus-path p-loop" d="M 923.11 384.23 A 280 280 0 1 1 708.62 204.25"/>
+    <path class="proteus-path p-aperture" d="M 708.62 204.25 A 280 280 0 0 1 839.98 265.51"/>
+  </svg>
+
+  <button class="replay-btn" id="replayBtn">Replay Animation</button>
+
+  <script>
+    const btn = document.getElementById('replayBtn');
+    btn.addEventListener('click', () => {
+      const oldSvg = document.getElementById('protoSvg');
+      const newSvg = oldSvg.cloneNode(true);
+      newSvg.id = 'protoSvg';
+      oldSvg.parentNode.replaceChild(newSvg, oldSvg);
+    });
+  </script>
+
+</body>
+</html>
