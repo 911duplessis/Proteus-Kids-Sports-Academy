@@ -68,6 +68,7 @@ button:focus-visible {
   .badge-chip.animate-in .badge-icon,
   .badge-chip.animate-in .badge-label { animation: none !important; opacity: 1 !important; }
   .scroll-progress { display: none; }
+  .stagger-ready { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 /* Skip link (accessibility) */

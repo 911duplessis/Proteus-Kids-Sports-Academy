@@ -119,4 +119,65 @@
     }, { threshold: 0.3 });
     counters.forEach(function (el) { counterObserver.observe(el); });
   }
+
+  /* --- Staggered card reveals --- */
+  var staggerGrids = document.querySelectorAll('.pathway-grid, .delivery-grid, .sport-grid');
+  if (staggerGrids.length && 'IntersectionObserver' in window) {
+    var staggerObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var children = entry.target.children;
+        for (var i = 0; i < children.length; i++) {
+          (function (child, delay) {
+            setTimeout(function () { child.classList.add('stagger-in'); }, delay);
+          })(children[i], i * 120);
+        }
+        staggerObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    staggerGrids.forEach(function (grid) {
+      for (var i = 0; i < grid.children.length; i++) {
+        grid.children[i].classList.add('stagger-ready');
+      }
+      staggerObserver.observe(grid);
+    });
+  }
+
+  /* --- 3D card tilt --- */
+  var tiltCards = document.querySelectorAll('.pathway-card, .delivery-card');
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    tiltCards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(600px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* --- Active nav scroll tracking (homepage only) --- */
+  var navLinksAll = document.querySelectorAll('.nav-links a');
+  var sections = document.querySelectorAll('section[id]');
+  if (sections.length > 1 && navLinksAll.length) {
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.getAttribute('id');
+        navLinksAll.forEach(function (link) {
+          var href = link.getAttribute('href');
+          if (href === '#' + id || href.endsWith('#' + id)) {
+            link.classList.add('nav-active');
+          } else {
+            link.classList.remove('nav-active');
+          }
+        });
+      });
+    }, { threshold: 0.3, rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach(function (sec) { sectionObserver.observe(sec); });
+  }
 })();
